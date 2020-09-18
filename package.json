@@ -1,0 +1,13 @@
+{
+  "name": "js-training-program",
+  "version": "1.0.0",
+  "description": "JS training program resources",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "abrahamBerzunza",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^26.4.2"
+  }
+}
