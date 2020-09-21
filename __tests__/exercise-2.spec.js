@@ -25,6 +25,10 @@ describe('exercise 2', () => {
     expect(mockFunc3).toHaveBeenCalled();
   });
 
+  it('should contain a message', () => {
+    expect(mockFunc2.mock.calls[0][0]).toEqual('Hello');
+  });
+
   it('should unsubscribe event', () => {
     event1.unsubscribe();
     EventEmitter.emit('World');
