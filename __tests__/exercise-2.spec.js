@@ -1,29 +1,35 @@
-const { average } = require('../exercises/execise-2');
+const { EventEmitter } = require('../exercises/exercise-2');
 
-describe('activity 2', () => {
-  it('the result should be 3.5', () => {
-    const averageOf = average();
-    averageOf(2);
-    averageOf(3);
-    averageOf(4);
-    const result = averageOf(5);
-    expect(result).toBe(3.5);
+describe('exercise 2', () => {
+  const mockFunc1 = jest.fn();
+  const mockFunc2 = jest.fn();
+  const mockFunc3 = jest.fn();
+  let event1 = null;
+  let event2 = null;
+  let event3 = null;
+
+  it('should subscribe events', () => {
+    event1 = EventEmitter.subscribe(mockFunc1);
+    event2 = EventEmitter.subscribe(mockFunc2);
+    event3 = EventEmitter.subscribe(mockFunc3);
+
+    expect(event1).not.toEqual(null);
+    expect(event2).not.toEqual(null);
+    expect(event3).not.toEqual(null);
   });
 
-  it('the result should be 4', () => {
-    const averageOf = average();
-    averageOf(3);
-    averageOf(3);
-    const result = averageOf(6);
-    expect(result).toBe(4);
+  it('should emit messages', () => {
+    EventEmitter.emit('Hello');
+    expect(mockFunc1).toHaveBeenCalled();
+    expect(mockFunc2).toHaveBeenCalled();
+    expect(mockFunc3).toHaveBeenCalled();
   });
 
-  it('the result should be 5', () => {
-    const averageOf = average();
-    averageOf(2);
-    averageOf(4);
-    averageOf(6);
-    const result = averageOf(8);
-    expect(result).toBe(5);
+  it('should unsubscribe event', () => {
+    event1.unsubscribe();
+    EventEmitter.emit('World');
+    expect(mockFunc1).toHaveBeenCalledTimes(1);
+    expect(mockFunc2).toHaveBeenCalledTimes(2);
+    expect(mockFunc3).toHaveBeenCalledTimes(2);
   });
 });
