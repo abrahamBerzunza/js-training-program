@@ -9,7 +9,13 @@
 */
 
 function average() {
-  // TODO: implement
+  let total = 0;
+  let count = 0;
+  
+  return averageOf = number => {
+    count += 1;    
+    return (total += number) / count;
+  };
 }
 
 module.exports = {
