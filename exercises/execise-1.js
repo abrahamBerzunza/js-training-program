@@ -9,9 +9,16 @@
 */
 
 function average() {
-  // TODO: implement
+  let numbers = 0;
+  let contador = 0;
+  const addNumber = (number) => {
+    contador += 1;
+    let result = (numbers += number) / contador;
+    return result;
+  };
+  return addNumber;
 }
 
 module.exports = {
-  average
+  average,
 };
