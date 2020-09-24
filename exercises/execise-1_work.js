@@ -26,3 +26,12 @@ function average() {
 module.exports = {
   average
 };
+
+/*
+const averageOf = average();
+averageOf(2);
+averageOf(4);
+averageOf(6);
+const result = averageOf(12);
+console.log(result);
+*/
