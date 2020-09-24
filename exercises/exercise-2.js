@@ -10,7 +10,19 @@
 */
 
 const EventEmitter = (function () {
-  // TODO: implement
+  let users = [];
+  return {
+  	subscribe: function (subscriber) {
+  		users.push(subscriber);
+  		return subscriber;
+  	},
+  	emit: function(message) {
+  		return message;
+  	},
+  	unsubscribe: function(subscriber) {
+  		return subscriber;
+  	}
+  }
 })();
 
 module.exports = {
