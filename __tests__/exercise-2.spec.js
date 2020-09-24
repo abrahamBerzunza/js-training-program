@@ -4,18 +4,19 @@ describe('exercise 2', () => {
   const mockFunc1 = jest.fn();
   const mockFunc2 = jest.fn();
   const mockFunc3 = jest.fn();
-  let event1 = null;
-  let event2 = null;
-  let event3 = null;
+
+  let subscriber1 = null;
+  let subscriber2 = null;
+  let subscriber3 = null;
 
   it('should subscribe events', () => {
-    event1 = EventEmitter.subscribe(mockFunc1);
-    event2 = EventEmitter.subscribe(mockFunc2);
-    event3 = EventEmitter.subscribe(mockFunc3);
+    subscriber1 = EventEmitter.subscribe(mockFunc1);
+    subscriber2 = EventEmitter.subscribe(mockFunc2);
+    subscriber3 = EventEmitter.subscribe(mockFunc3);
 
-    expect(event1).not.toEqual(null);
-    expect(event2).not.toEqual(null);
-    expect(event3).not.toEqual(null);
+    expect(subscriber1).not.toEqual(null);
+    expect(subscriber2).not.toEqual(null);
+    expect(subscriber3).not.toEqual(null);
   });
 
   it('should emit messages', () => {
@@ -30,7 +31,7 @@ describe('exercise 2', () => {
   });
 
   it('should unsubscribe event', () => {
-    event1.unsubscribe();
+    subscriber1.unsubscribe();
     EventEmitter.emit('World');
     expect(mockFunc1).toHaveBeenCalledTimes(1);
     expect(mockFunc2).toHaveBeenCalledTimes(2);
