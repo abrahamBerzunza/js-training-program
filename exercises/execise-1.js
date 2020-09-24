@@ -9,8 +9,14 @@
 */
 
 function average() {
-  // TODO: implement
+	let total = 0;
+	let cont = 0;
+	return getAvg = (number) => {
+		cont++;
+		return (total += number)/cont;
+	};
 }
+
 
 module.exports = {
   average
