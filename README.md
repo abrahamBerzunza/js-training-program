@@ -13,3 +13,7 @@ $ npm install
 ```sh
 $ npm test
 ```
+
+
+For César Vega:
+exercise-2_work_1  <- This is the last version I built by myself.
