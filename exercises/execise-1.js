@@ -8,10 +8,16 @@
   
 */
 
-function average() {
-  // TODO: implement
+function average(num1 = 0, counter = 0) {
+  const addNumber = (num2) => {
+    counter += 1;
+    return (num1 += num2) / counter;
+  };
+  return addNumber;
 }
 
+
 module.exports = {
-  average
+  average,
 };
+
