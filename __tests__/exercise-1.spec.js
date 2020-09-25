@@ -1,6 +1,6 @@
 const { average } = require('../exercises/execise-1');
 
-describe.skip('exercise 1', () => {
+describe('exercise 1', () => {
   it('the result should be 3.5', () => {
     const averageOf = average();
     averageOf(2);
