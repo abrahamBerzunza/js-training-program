@@ -13,7 +13,7 @@ function average() {
   let count = 0;
   
   return averageOf = number => {
-    count += 1;    
+    count ++;    
     return (total += number) / count;
   };
 }
