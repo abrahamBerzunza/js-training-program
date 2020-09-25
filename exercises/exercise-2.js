@@ -14,22 +14,15 @@ const EventEmitter = (function () {
   return {
   	subscribe: function (subscriber) {
   		users.push(subscriber);
-  		return {
-  			unsubscribe: function() {
-		  		users.forEach((user, index) => {
-		  			if(user === subscriber) {
-		  				users.splice(index, 1);
-		  			}
-		  		});
-		  	}
-  		}
+  		return subscriber;
   	},
   	emit: function(message) {
-  		users.forEach(user => {
-  			user(message);
-  		});
+  		return message;
+  	},
+  	unsubscribe: function(subscriber) {
+  		return subscriber;
   	}
-  };
+  }
 })();
 
 module.exports = {
