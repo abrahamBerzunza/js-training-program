@@ -14,15 +14,14 @@ const EventEmitter = (function () {
   return {
     subscribe: function (name) {
       subscribers.push(name);
-      return name;
+      return {
+        unsubscribe: function () {
+          subscribers = subscribers.filter((suscriber) => suscriber !== name);
+        },
+      };
     },
     emit: function (message) {
-      return message;
-    },
-    unsubscribe: function (name) {
-      subscribers.splice(name);
-      this.emit();
-      return name;
+      subscribers.forEach((subscriber) => subscriber(message));
     },
   };
 })();

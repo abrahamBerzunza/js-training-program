@@ -10,10 +10,10 @@
 
 function average() {
   let numbers = 0;
-  let contador = 0;
+  let counter = 0;
   const addNumber = (number) => {
-    contador += 1;
-    let result = (numbers += number) / contador;
+    counter += 1;
+    let result = (numbers += number) / counter;
     return result;
   };
   return addNumber;
