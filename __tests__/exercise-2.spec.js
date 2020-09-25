@@ -1,4 +1,4 @@
-const { EventEmitter } = require('../exercises/exercise-2');
+const { EventEmitter } = require('../exercises/exercise-2_Jesus');
 
 describe('exercise 2', () => {
   const mockFunc1 = jest.fn();

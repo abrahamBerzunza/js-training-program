@@ -10,15 +10,15 @@
 */
 
 const EventEmitter = (function () {
-  let suscribers = [];
+  let subscribers = [];
   return {
     subscribe: function(fn){
-      suscribers.push(fn);
+      subscribers.push(fn);
     
       return{
         unsubscribe: function(){
-          subscribers.forEach(subscriber =>{
-            if(subscriber === fn){
+          subscribers.forEach((user,index) =>{
+            if(user === fn){
               subscribers.splice(index,1);
             }
           })
@@ -28,7 +28,7 @@ const EventEmitter = (function () {
     },
 
     emit: function(msg){
-      suscribers.forEach(subscriber => {
+      subscribers.forEach(subscriber => {
         subscriber(msg);
       })
     }
