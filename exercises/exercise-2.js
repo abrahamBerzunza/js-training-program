@@ -14,17 +14,18 @@ const EventEmitter = (function () {
   return {
     subscribe: function (sub) {
       subscribers.push(sub);
-      return sub;
+      return {
+        unsubscribe: function () {
+          subscribers = subscribers.filter(unsub => unsub !== sub);
+        },
+      };
     },
-    emit: function (message) {      
-      return message;
+    emit: function (message) {
+      subscribers.forEach(sub => sub(message));
     },
-    unsubscribe: function () {
-      subscribers.pop();
-    }
   };
 })();
 
 module.exports = {
-  EventEmitter
+  EventEmitter,
 };
